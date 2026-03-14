@@ -1,11 +1,16 @@
-import './style.css'
-import typescriptLogo from './assets/typescript.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import { setupCounter } from './counter.ts'
+import "./style.css";
+import typescriptLogo from "./assets/typescript.svg";
+import viteLogo from "./assets/vite.svg";
+import heroImg from "./assets/hero.png";
+import { setupCounter } from "./counter.ts";
+import { animatedCube } from "./cube.ts";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 <section id="center">
+<div>
+<h1>Hello Three js</h1>
+<canvas id="cube"></canvas>
+</div>
   <div class="hero">
     <img src="${heroImg}" class="base" width="170" height="179">
     <img src="${typescriptLogo}" class="framework" alt="TypeScript logo"/>
@@ -15,7 +20,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <h1>Get started</h1>
     <p>Edit <code>src/main.ts</code> and save to test <code>HMR</code></p>
   </div>
-  <button id="counter" type="button" class="counter"></button>
+  <button id="ahmed" type="button" class="counter"></button>
 </section>
 
 <div class="ticks"></div>
@@ -55,6 +60,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
 <div class="ticks"></div>
 <section id="spacer"></section>
-`
+`;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+setupCounter(document.querySelector<HTMLButtonElement>("#ahmed")!);
+animatedCube(document.querySelector<HTMLCanvasElement>("#cube")!);
