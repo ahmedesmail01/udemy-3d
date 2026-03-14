@@ -1,0 +1,105 @@
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# =========================
+# Logs
+# =========================
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# =========================
+# Env files
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Node
+# =========================
+node_modules/
+.npm/
+.pnpm-store/
+
+# Build / cache
+dist/
+build/
+.next/
+out/
+.nuxt/
+.cache/
+.parcel-cache/
+coverage/
+.nyc_output/
+*.tsbuildinfo
+
+# =========================
+# NestJS
+# =========================
+dist/
+coverage/
+
+# =========================
+# React / Vite / Next
+# =========================
+vite.svg
+
+# =========================
+# Laravel / PHP
+# =========================
+/vendor/
+/bootstrap/cache/*.php
+/public/storage
+/storage/*.key
+/storage/app/public
+/storage/debugbar
+.phpunit.result.cache
+
+# Ignore generated storage files but keep folders
+/storage/*.private.key
+/storage/*.public.key
+
+# =========================
+# Database
+# =========================
+*.sqlite
+*.sqlite3
+
+# =========================
+# Testing
+# =========================
+/.phpunit.cache
+/test-results/
+/playwright-report/
+
+# =========================
+# Docker
+# =========================
+docker-compose.override.yml
+
+# =========================
+# Misc
+# =========================
+*.pem
+*.crt
+*.key
+
+# =========================
+# Temporary files
+# =========================
+tmp/
+temp/
+*.tmp
+*.bak

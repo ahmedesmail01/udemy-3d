@@ -1,0 +1,14 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+}
+
+.draw {
+  display: fixed;
+  top: 0;
+  left: 0;
+}
