@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import "./App.css";
 import Scene from "./components/Scene";
-import Globe from "./components/Globe";
+// import Globe from "./components/Globe";
 import { OrbitControls } from "@react-three/drei";
 
 function App() {
@@ -14,8 +14,8 @@ function App() {
         <ambientLight intensity={1} />
         <directionalLight position={[2, 2, 2]} intensity={2} />
 
-        {/* <Scene /> */}
-        <Globe />
+        <Scene />
+        {/* <Globe /> */}
         <OrbitControls />
         <axesHelper />
       </Canvas>
