@@ -7,9 +7,58 @@ export function animatedCube(element: HTMLCanvasElement) {
   // scene
   const scene = new THREE.Scene();
 
+  //loading manager
+  const loadingManager = new THREE.LoadingManager();
+  loadingManager.onStart = () => {
+    console.log("Loading started");
+  };
+
+  loadingManager.onLoad = () => {
+    console.log("Loading completed");
+  };
+
+  loadingManager.onProgress = (url, itemsLoaded, itemsTotal) => {
+    console.log(`Loading file: ${url} (${itemsLoaded} of ${itemsTotal})`);
+  };
+
+  loadingManager.onError = (url) => {
+    console.error(`Error loading ${url}`);
+  };
+
+  const texture = new THREE.TextureLoader(loadingManager);
+  const colorTexture = texture.load("/texture/color.jpg");
+
   // mesh
   const geometry = new THREE.BoxGeometry(1, 1, 1);
-  const material = new THREE.MeshBasicMaterial({ color: "purple" });
+  //   const geometry = new THREE.BufferGeometry();
+  //   const vertices = new Float32Array([
+  //     -1.0,
+  //     -1.0,
+  //     1.0, // v0
+  //     1.0,
+  //     -1.0,
+  //     1.0, // v1
+  //     1.0,
+  //     1.0,
+  //     1.0, // v2
+  //     1.0,
+  //     1.0,
+  //     1.0, // v3
+  //     -1.0,
+  //     1.0,
+  //     1.0, // v4
+  //     -1.0,
+  //     -1.0,
+  //     1.0, // v5
+  //   ]);
+
+  //   geometry.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
+
+  const material = new THREE.MeshBasicMaterial({
+    map: colorTexture,
+    // color: "purple",
+    // wireframe: true,
+  });
   const mesh = new THREE.Mesh(geometry, material);
   scene.add(mesh);
 
@@ -44,7 +93,7 @@ export function animatedCube(element: HTMLCanvasElement) {
   const animate = () => {
     const elapsedTime = clock.getElapsedTime();
 
-    mesh.rotation.y = elapsedTime * Math.PI * 2;
+    mesh.rotation.y = (elapsedTime * Math.PI) / 2;
     mesh.rotation.x = elapsedTime * 0.5;
 
     renderer.render(scene, camera);
